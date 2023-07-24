@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "jer",
+    "password": "myKANBANapp62",
+    "database": "mykanban",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
