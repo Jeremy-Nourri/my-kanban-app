@@ -1,7 +1,7 @@
 'use strict';
 import { Model, DataTypes } from 'sequelize';
-import bcrypt from 'bcrypt';
 import { sequelize } from '../index.js';
+import hashPassword from '../services/userServices.js';
 
 class Users extends Model {
     static associate(models) {
@@ -79,16 +79,6 @@ Users.init({
   },
 }, {
   sequelize,
-});
-
-Users.beforeCreate(async (user) => {
-  const hashedPassword = await bcrypt.hash(user.password, 10);
-  user.password = hashedPassword;
-});
-
-Users.beforeUpdate(async (user) => {
-  const hashedPassword = await bcrypt.hash(user.password, 10);
-  user.password = hashedPassword;
 });
 
 export default Users;
